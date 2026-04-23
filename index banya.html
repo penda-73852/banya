@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Частная баня на дровах | Русская парная и купель | Александровская</title>
+    <!-- Шрифты и иконки -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ========== ТЁМНОЕ ДЕРЕВО + ЗОЛОТО ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #120e0a;
+            color: #efe6dc;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* шапка фиксированная */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(18, 14, 10, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(227, 196, 146, 0.25);
+            padding: 14px 0;
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            font-size: 2rem;
+            color: #e3c492;
+        }
+        .logo-text {
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+        .logo-text span {
+            font-size: 0.7rem;
+            display: block;
+            font-family: 'Inter', sans-serif;
+            color: #c9ae7a;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+        .nav-links a {
+            color: #efe6dc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #e3c492;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #e3c492;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #e3c492;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #e3c492;
+            color: #120e0a;
+        }
+        /* герой-блок */
+        .hero {
+            margin-top: 85px;
+            min-height: 90vh;
+            background: linear-gradient(107deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%), url('https://placehold.co/1600x900/2c241f/e3c492?text=ВСТАВЬ+СВОЁ+ФОТО+ПАРНОЙ') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            max-width: 700px;
+            padding: 40px 20px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
+        }
+        .price-badge {
+            font-size: 1.6rem;
+            background: rgba(227, 196, 146, 0.15);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 8px 28px;
+            border-radius: 60px;
+            border: 1px solid #e3c492;
+            margin: 20px 0;
+        }
+        .btn-primary {
+            background: #e3c492;
+            color: #120e0a;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            background: #d4b07a;
+            transform: scale(1.02);
+        }
+        /* секции */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(227, 196, 146, 0.1);
+        }
+        .section-title {
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 56px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #e3c492;
+            margin: 16px auto 0;
+        }
+        /* преимущества */
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .feature-card {
+            background: #1f1914;
+            padding: 32px 20px;
+            border-radius: 28px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            border: 1px solid #2e261f;
+            transition: 0.2s;
+        }
+        .feature-card i {
+            font-size: 2.8rem;
+            color: #e3c492;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        /* прайс-лист */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .price-item {
+            background: #1f1914;
+            border-radius: 24px;
+            padding: 24px;
+            border-left: 4px solid #e3c492;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .price-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .price-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #e3c492;
+        }
+        .note-box {
+            background: #2a211b;
+            border-radius: 24px;
+            padding: 28px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px solid rgba(227, 196, 146, 0.3);
+        }
+        .note-box i {
+            font-size: 2.2rem;
+            color: #e3c492;
+        }
+        /* галерея-заглушка */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .gallery-placeholder {
+            background: #1f1914;
+            border-radius: 28px;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #c9ae7a;
+            border: 1px dashed #e3c492;
+            text-align: center;
+        }
+        .gallery-placeholder i {
+            font-size: 2.5rem;
+            color: #e3c492;
+        }
+        /* контакты и соцсети */
+        .contacts-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            justify-content: space-between;
+        }
+        .contact-details {
+            flex: 1;
+        }
+        .contact-details p {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 30px 0;
+        }
+        .social-btn {
+            background: #2a211b;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #efe6dc;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+            border: 1px solid rgba(227, 196, 146, 0.3);
+        }
+        .social-btn:hover {
+            background: #e3c492;
+            color: #120e0a;
+            border-color: #e3c492;
+        }
+        .map-card {
+            flex: 1;
+            background: #1f1914;
+            border-radius: 32px;
+            padding: 24px;
+            text-align: center;
+        }
+        .vk-stat {
+            background: #2a211b;
+            border-radius: 40px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+        footer {
+            background: #0c0907;
+            text-align: center;
+            padding: 32px;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 820px) {
+            .hero h1 { font-size: 2.4rem; }
+            .header-flex { flex-direction: column; }
+            .nav-links { gap: 16px; }
+            .section-title { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <i class="fas fa-fire logo-icon"></i>
+            <div class="logo-text">
+                Частная баня<br><span>на дровах с русской парной</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#about">О нас</a>
+            <a href="#prices">Цены</a>
+            <a href="#gallery">Фото</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+        <button class="btn-outline" onclick="window.location.href='tel:+79111249696'">📞 Позвонить</button>
+    </div>
+</header>
+
+<!-- ГЕРОЙ С ЗАГЛУШКОЙ ФОТО -->
+<section class="hero" id="hero">
+    <div class="container hero-content">
+        <h1>Жар настоящей дровяной бани<br>и ледяная купель</h1>
+        <div class="price-badge">🔥 от 2 200 ₽ / час</div>
+        <p style="font-size: 1.2rem; margin: 16px 0;">Только частное посещение. Уют, чистота, аромат веников.</p>
+        <!-- Кнопка Забронировать скроллит вниз к контактам -->
+        <button class="btn-primary" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'});"><i class="fas fa-calendar-check"></i> Забронировать</button>
+    </div>
+</section>
+
+<!-- БЛОК О НАС / ПРЕИМУЩЕСТВА -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-card"><i class="fas fa-fire"></i><h3>Дровяная печь</h3><p>Настоящий пар, мягкое тепло, запах дров</p></div>
+            <div class="feature-card"><i class="fas fa-snowflake"></i><h3>Ледяная купель</h3><p>Контраст для бодрости и здоровья</p></div>
+            <div class="feature-card"><i class="fas fa-user-friends"></i><h3>Частная атмосфера</h3><p>Только вы и ваши близкие — без посторонних</p></div>
+            <div class="feature-card"><i class="fas fa-car"></i><h3>Своя парковка</h3><p>Удобный въезд в Александровской</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ПРАЙС-ЛИСТ -->
+<section id="prices">
+    <div class="container">
+        <h2 class="section-title">Услуги и цены</h2>
+        <div class="price-grid">
+            <div class="price-item"><span class="price-name">Русская баня на дровах (1 час)</span><span class="price-value">2 200 ₽</span></div>
+            <div class="price-item"><span class="price-name">Простынь</span><span class="price-value">200 ₽</span></div>
+            <div class="price-item"><span class="price-name">Полотенце</span><span class="price-value">200 ₽</span></div>
+            <div class="price-item"><span class="price-name">Веник дубовый</span><span class="price-value">500 ₽</span></div>
+            <div class="price-item"><span class="price-name">Веник берёзовый</span><span class="price-value">450 ₽</span></div>
+            <div class="price-item"><span class="price-name">Чай с травами (1,5 л)</span><span class="price-value">500 ₽</span></div>
+        </div>
+        <div class="note-box">
+            <i class="fas fa-clock"></i>
+            <p style="font-size: 1.2rem; margin-top: 12px;"><strong>Минимальное время бронирования — 3 часа</strong><br>Сеанс от 3 часов = <strong style="color:#e3c492;">6 600 ₽</strong> (3ч × 2200₽)</p>
+            <p style="margin-top: 8px;">Вы можете оставаться дольше — оплата почасово. Баня только для вашей компании.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ГАЛЕРЕЯ-ЗАГЛУШКА (ТУТ ПОМЕНЯЮ КАРТИНКИ) -->
+<section id="gallery">
+    <div class="container">
+        <h2 class="section-title">Наша баня в фото</h2>
+        <div class="gallery">
+            <div class="gallery-placeholder"><i class="fas fa-camera"></i> Сюда вставлю фото парной</div>
+            <div class="gallery-placeholder"><i class="fas fa-camera"></i> Сюда вставлю фото купели</div>
+            <div class="gallery-placeholder"><i class="fas fa-camera"></i> Сюда вставлю фото комнаты отдыха</div>
+            <div class="gallery-placeholder"><i class="fas fa-camera"></i> Сюда вставлю фото фасада</div>
+        </div>
+        <p style="text-align: center; margin-top: 24px; opacity: 0.7;"><i class="fas fa-image"></i> Заменю эти заглушки на свои реальные фото — просто заменю URL в атрибутах background-image или img</p>
+    </div>
+</section>
+
+<!-- КОНТАКТЫ, СОЦСЕТИ, КАРТА -->
+<section id="contacts">
+    <div class="container">
+        <h2 class="section-title">Контакты и как добраться</h2>
+        <div class="contacts-wrapper">
+            <div class="contact-details">
+                <p><i class="fas fa-map-marker-alt" style="color:#e3c492;"></i> <strong>Адрес:</strong> посёлок Александровская, Аграрная ул., 5</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Телефон:</strong> <a href="tel:+79111249696" style="color:#e3c492;">+7 (911) 124-96-96</a></p>
+                <p><i class="far fa-clock"></i> <strong>Часы работы:</strong> ежедневно с 10:00 до 22:00</p>
+                <p><i class="fas fa-parking"></i> <strong>Парковка:</strong> на территории, бесплатно</p>
+                <div class="social-buttons">
+                    <a href="https://wa.me/79111249696" target="_blank" class="social-btn"><i class="fab fa-whatsapp fa-lg"></i> WhatsApp</a>
+                    <a href="https://t.me/+79111249696" target="_blank" class="social-btn"><i class="fab fa-telegram fa-lg"></i> Telegram</a>
+                    <a href="https://vk.com/chastnayabanya" target="_blank" class="social-btn"><i class="fab fa-vk fa-lg"></i> VK <span class="vk-stat">85 подписчиков</span></a>
+                </div>
+                <button class="btn-primary" style="background:#1f1914; border:1px solid #e3c492; color:#e3c492;" onclick="window.location.href='tel:+79111249696'">📞 Позвонить сейчас</button>
+            </div>
+            <div class="map-card">
+                <i class="fas fa-map" style="font-size: 3rem; color:#e3c492;"></i>
+                <p style="margin: 16px 0;">Аграрная улица, 5, Александровская</p>
+                <a href="https://yandex.ru/maps/?text=посёлок Александровская, Аграрная улица, 5" target="_blank" class="social-btn" style="background:#2a211b;">Открыть Яндекс.Карты →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Частная баня на дровах с русской парной и купелью<br>Работаем для вас каждый день с 10 до 22</p>
+    <p style="margin-top: 12px;">© 2026 · Бронирование по телефону или через соцсети</p>
+</footer>
+
+<script>
+    // ========== МОИ ЗАМЕТКИ ПО ПРАВКАМ ==========
+    // 1. Фон в герое ( .hero ) — замени url на своё фото.
+    // 2. В галерее вместо заглушек вставлю свои изображения.
+    // 3. Все контакты уже рабочие.
+    // 4. Кнопка "Забронировать" теперь плавно ведёт в раздел с контактами внизу.
+    console.log('Готово. Фото и мелкий текст поправлю сам.');
+</script>
+</body>
+</html>
